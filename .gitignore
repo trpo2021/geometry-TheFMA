@@ -1,0 +1,6 @@
+*.o
+*.c.*
+*geometry
+*.save
+
+
