@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
 
@@ -12,8 +13,7 @@ struct for_circle
 int main()
 {
 	char stroka[100];
-	int i, j, flag = 0;
-	char figure[20] = "circle";
+	int flag = 0;
 	char *pointer = stroka;
 	char *end_pointer = stroka;
 	char *new_pointer;
