@@ -161,3 +161,5 @@ double area_circle(figure_circle circle)
 {
     return M_PI * pow(circle.radius, 2);
 }
+
+int Intersection()
