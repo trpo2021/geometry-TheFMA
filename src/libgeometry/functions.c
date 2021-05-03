@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define COUNT_CICLE 8
+#define COUNT_CIRCLE 4
 
 static char* figure_calling(char* pointer, char* end_pointer, char* stroka)
 {
@@ -121,16 +121,11 @@ int test_circle(
     else
         circle[num_circle].x = digit;
 
-    printf("X = %.2f\n", digit);
-
     if ((pointer = search_digit(pointer, &digit)) == NULL)
         return 4;
     else
         circle[num_circle].y = digit;
 
-    printf("Y = %.2f\n", digit);
-
-    // new_pointer = pointer;
     if ((pointer = search_comma(pointer)) == NULL)
         return 5;
 
@@ -140,8 +135,6 @@ int test_circle(
         return 6;
     else
         circle[num_circle].radius = digit;
-
-    printf("Radius = %.2f\n", digit);
 
     if ((pointer = search_brackets(pointer, ')')) == NULL)
         return 7;
@@ -162,4 +155,25 @@ double area_circle(figure_circle circle)
     return M_PI * pow(circle.radius, 2);
 }
 
-// int Intersection()
+double Lenght_between_points(double x1, double y1, double x2, double y2)
+{
+    return sqrt(pow(y1 - x1, 2) + pow(y2 - x2, 2));
+}
+
+int Intersection(figure_circle circle_i, figure_circle circle_j, int num_circle)
+{
+    double lenght, sum_radius;
+
+    for (int i = 0; i < num_circle; i++) {
+        for (int j = 0; j < num_circle; j++) {
+            if (i != j) {
+                sum_radius = fabs(circle_i.radius + circle_j.radius);
+                lenght = Lenght_between_points(
+                        circle_i.x, circle_i.y, circle_j.x, circle_j.y);
+                if (lenght <= sum_radius)
+                    return 1;
+            }
+        }
+    }
+    return 0;
+}
