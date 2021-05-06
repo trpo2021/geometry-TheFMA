@@ -17,7 +17,8 @@ int main()
     int Num_Error;
     int i, j;
 
-    while (fgets(stroka, sizeof(stroka), stdin)) {
+    while (num_circle < COUNT_CIRCLE) {
+        fgets(stroka, sizeof(stroka), stdin);
         pointer = stroka;
         end_pointer = stroka;
         Num_Error
