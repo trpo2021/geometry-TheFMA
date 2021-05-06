@@ -2,3 +2,5 @@
 *.save
 *.d
 *.a
+geometry
+geometry-test
